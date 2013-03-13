@@ -1,0 +1,19 @@
+CROSS_HOST="x86_64-pc-cygwin"
+inherit cross
+
+NAME="cygwin64-libgcrypt"
+VERSION=1.5.0
+RELEASE=1
+CATEGORY="Devel"
+SUMMARY="GnuPG cryptography library for Cygwin 64bit toolchain"
+DESCRIPTION="Libgcrypt is a general purpose crypto library based on the code
+used in GnuPG."
+HOMEPAGE="http://www.gnupg.org/related_software/libraries.html"
+SRC_URI="ftp://ftp.gnupg.org/gcrypt/libgcrypt/libgcrypt-${VERSION}.tar.bz2
+	 ftp://ftp.gnupg.org/gcrypt/libgcrypt/libgcrypt-${VERSION}.tar.bz2.sig"
+SRC_DIR="libgcrypt-${VERSION}"
+PATCH_URI="1.5.0-win64.patch"
+
+MAKEOPTS+=" no_undefined=-no-undefined bin_PROGRAMS= INFO_DEPS= "
+
+KEEP_LA_FILES="none"
